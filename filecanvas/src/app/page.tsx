@@ -9,7 +9,7 @@ import link from "../../public/navicons/link.svg";
 import pan from "../../public/navicons/pan.svg";
 import resize from "../../public/navicons/resize.svg";
 
-import "./page.css";
+import styles from "../../styles/Page.module.css";
 
 
 export default async function Home() {
@@ -24,8 +24,8 @@ export default async function Home() {
   ));
 
   return (
-    <main className="page" style={{backgroundColor: "#161718"}}>
-      <nav className="navbar-container">
+    <main className={styles.page}>
+      <nav className={styles.navbarContainer}>
         <div className="navbar">
           <div className="navbar-center">
             <div className="navbar-item">

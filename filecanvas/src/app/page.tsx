@@ -9,6 +9,8 @@ import link from "../../public/navicons/link.svg";
 import pan from "../../public/navicons/pan.svg";
 import resize from "../../public/navicons/resize.svg";
 
+import "./page.css";
+
 
 export default async function Home() {
   const elementsJSON = await db.select().from(elements);
@@ -22,37 +24,35 @@ export default async function Home() {
   ));
 
   return (
-    <main style={{ width: "100%", height: "100dvh", backgroundColor: "#161718", position: "relative" }}>
-      <nav style={{ width: "100%", height: "50px", position: "absolute", top: 0, left: 0, display: "flex", justifyContent: "center", marginTop: "15px", zIndex: 10 }}>
-        <div style={{ width: "30%", display: "flex", position: "relative", borderRadius: "10px", boxShadow: "0px 0px 40px -15px rgb(0, 0, 0)", backgroundColor: "#0e4145" }}>
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "100%" }}>
-            <div style={{ width: "50px", height: "50px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-              <Image alt="pan" src={pan} width={30} height={30} />
+    <main className="page" style={{backgroundColor: "#161718"}}>
+      <nav className="navbar-container">
+        <div className="navbar">
+          <div className="navbar-center">
+            <div className="navbar-item">
+              <Image alt="pan" src={pan} width={20} height={20} className="item-image" />
             </div>
-            <div style={{ width: "50px", height: "50px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-              <Image alt="resize" src={resize} width={30} height={30} />
+            <div className="navbar-item">
+              <Image alt="resize" src={resize} width={20} height={20} style={{ borderRadius: 7, opacity: .7, padding: "5px", backgroundColor: "#31303b" }} />
             </div>
-            <div style={{ width: "50px", height: "50px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-              <Image alt="edit" src={edit} width={30} height={30} />
+            <div className="navbar-item">
+              <Image alt="edit" src={edit} width={20} height={20} className="item-image" />
             </div>
-            <div style={{ width: "50px", height: "50px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-              <Image alt="image" src={image} width={30} height={30} />
+            <div className="navbar-item">
+              <Image alt="image" src={image} width={20} height={20} className="item-image" />
             </div>
-            <div style={{ width: "50px", height: "50px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-              <Image alt="link" src={link} width={30} height={30} />
+            <div className="navbar-item">
+              <Image alt="link" src={link} width={20} height={20} className="item-image" />
             </div>
-            <div style={{ width: "50px", height: "50px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-              <Image alt="article" src={article} width={30} height={30} />
+            <div className="navbar-item">
+              <Image alt="article" src={article} width={20} height={20} className="item-image" />
             </div>
-          </div>
-
-          <div>
-
           </div>
         </div>
       </nav>
       
       {containers}
+
+      {/* <div style={{ width: "150vw", height: "150vh", backgroundImage: "radial-gradient(circle, rgba(255, 255, 255, 0.02) 10%, transparent 10%)", backgroundSize: "30px 30px" }} /> */}
     </main>
   );
 }

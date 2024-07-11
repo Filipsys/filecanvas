@@ -70,6 +70,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    user-select: none;
 }
 
 .navbarSpacer > p {
@@ -89,6 +91,9 @@
 
     border-radius: 7px;
     background-color: #31303b;
+
+    user-select: none;
+    cursor: pointer;
 
     transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
 }
@@ -111,7 +116,7 @@
 }
 
 .itemImage {
-    opacity: .6;
+    opacity: .4;
     margin: 5px;
 
     width: 17px;

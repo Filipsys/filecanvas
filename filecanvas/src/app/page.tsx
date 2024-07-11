@@ -11,7 +11,9 @@ import resize from "../../public/navicons/resize.svg";
 
 import styles from "../../styles/Page.module.css";
 
-import AddElement from "./components/addElement";
+import handleClick from "./components/handleClick";
+
+import React from "react";
 
 
 export default async function Home() {
@@ -45,7 +47,7 @@ export default async function Home() {
             <div className={styles.navbarRight}>
               <div className={styles.navbarSpacer}><p>+</p></div>
 
-              <button className={styles.navbarItem}>
+              <button className={styles.navbarItem} onClick={handleClick}>
                 <Image alt="image" src={image} className={styles.itemImage} />
               </button>
               <button className={styles.navbarItem}>

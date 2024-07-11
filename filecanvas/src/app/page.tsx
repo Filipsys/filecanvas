@@ -28,28 +28,35 @@ export default async function Home() {
       <nav className={styles.navbarContainer}>
         <div className={styles.navbar}>
           <div className={styles.navbarCenter}>
-            <div className={styles.navbarItem}>
-              <Image alt="pan" src={pan}  className={styles.itemImage} />
+            <div className={styles.navbarLeft}>
+              <div className={styles.navbarItem}>
+                <Image alt="pan" src={pan} className={styles.itemImage} />
+              </div>
+              <div className={styles.navbarItem}>
+                <Image alt="resize" src={resize} className={styles.itemImage} />
+              </div>
+              <div className={styles.navbarItem}>
+                <Image alt="edit" src={edit} className={styles.itemImage} />
+              </div>
             </div>
-            <div className={styles.navbarItem}>
-              <Image alt="resize" src={resize}  className={styles.itemImage} />
-            </div>
-            <div className={styles.navbarItem}>
-              <Image alt="edit" src={edit}  className={styles.itemImage} />
-            </div>
-            <div className={styles.navbarItem}>
-              <Image alt="image" src={image}  className={styles.itemImage} />
-            </div>
-            <div className={styles.navbarItem}>
-              <Image alt="link" src={link} style={{ transform: "rotate(-45deg)" }} className={styles.itemImage} />
-            </div>
-            <div className={styles.navbarItem}>
-              <Image alt="article" src={article}  className={styles.itemImage} />
+
+            <div className={styles.navbarRight}>
+              <div className={styles.navbarSpacer}><p>+</p></div>
+
+              <div className={styles.navbarItem}>
+                <Image alt="image" src={image} className={styles.itemImage} />
+              </div>
+              <div className={styles.navbarItem}>
+                <Image alt="link" src={link} style={{ transform: "rotate(-45deg)" }} className={styles.itemImage} />
+              </div>
+              <div className={styles.navbarItem}>
+                <Image alt="article" src={article} className={styles.itemImage} />
+              </div>
             </div>
           </div>
         </div>
-      </nav> 
-      
+      </nav>
+
       {containers}
 
       <div style={{ width: "150vw", height: "150vh", backgroundImage: "radial-gradient(circle, rgba(255, 255, 255, 0.02) 10%, transparent 10%)", backgroundSize: "30px 30px", overflow: "hidden" }} />

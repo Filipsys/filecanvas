@@ -36,9 +36,38 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: row;
 
     width: 100%;
     height: 100%
+}
+
+.navbarLeft, .navbarRight {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    height: 100%;
+}
+
+.navbarLeft {
+    background-color: #313136;
+
+    border-radius: 10px;
+}
+
+.navbarSpacer {
+    height: 100%;
+    width: 20px;
+
+    opacity: .5;
+}
+
+.navbarSpacer > p {
+    color: white;
+    font-size: 20px;
+    text-align: center;
 }
 
 .navbarItem {
@@ -63,7 +92,7 @@
 
 .navbarItem:hover {
     background-color: hsl(from #31303b h s l / .5);
-    box-shadow: 0px 0px 40px -15px rgb(0, 0, 0);
+    box-shadow: 0px 5px 40px 0px rgba(0, 0, 0, 1);
 }
 
 .navbarItem:hover > .itemImage {

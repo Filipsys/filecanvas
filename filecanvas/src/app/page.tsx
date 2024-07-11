@@ -9,7 +9,9 @@ import link from "../../public/navicons/link.svg";
 import pan from "../../public/navicons/pan.svg";
 import resize from "../../public/navicons/resize.svg";
 
-import styles from "./Page.module.css";
+import styles from "../../styles/Page.module.css";
+
+import AddElement from "./components/addElement";
 
 
 export default async function Home() {
@@ -43,15 +45,15 @@ export default async function Home() {
             <div className={styles.navbarRight}>
               <div className={styles.navbarSpacer}><p>+</p></div>
 
-              <div className={styles.navbarItem}>
+              <button className={styles.navbarItem}>
                 <Image alt="image" src={image} className={styles.itemImage} />
-              </div>
-              <div className={styles.navbarItem}>
+              </button>
+              <button className={styles.navbarItem}>
                 <Image alt="link" src={link} style={{ transform: "rotate(-45deg)" }} className={styles.itemImage} />
-              </div>
-              <div className={styles.navbarItem}>
+              </button>
+              <button className={styles.navbarItem}>
                 <Image alt="article" src={article} className={styles.itemImage} />
-              </div>
+              </button>
             </div>
           </div>
         </div>

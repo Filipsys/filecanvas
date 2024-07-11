@@ -52,22 +52,29 @@
 }
 
 .navbarLeft {
-    background-color: #313136;
+    background-color: #31303b;
 
     border-radius: 10px;
+}
+
+.navbarLeft > .navbarItem {
+    background-color: #232329;
 }
 
 .navbarSpacer {
     height: 100%;
     width: 20px;
 
-    opacity: .5;
+    opacity: .2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .navbarSpacer > p {
     color: white;
     font-size: 20px;
-    text-align: center;
 }
 
 .navbarItem {
@@ -92,11 +99,15 @@
 
 .navbarItem:hover {
     background-color: hsl(from #31303b h s l / .5);
-    box-shadow: 0px 5px 40px 0px rgba(0, 0, 0, 1);
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 1);
 }
 
 .navbarItem:hover > .itemImage {
     opacity: 1;
+}
+
+.navbarItem:active {
+    border: 3px solid #12585d;
 }
 
 .itemImage {

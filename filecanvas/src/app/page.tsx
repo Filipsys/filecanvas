@@ -2,20 +2,16 @@ import { db } from "../database/db";
 import { elements } from "../database/schema";
 import Image from "next/image";
 
-import article from "../../public/navicons/article.svg";
-import edit from "../../public/navicons/edit.svg";
-import image from "../../public/navicons/image.svg";
-import link from "../../public/navicons/link.svg";
-import pan from "../../public/navicons/pan.svg";
-import resize from "../../public/navicons/resize.svg";
+
 
 import styles from "../../styles/Page.module.css";
 
 // import Counter from "./components/counter";
-import logClick from "./functions/serverLog";
-import LogButton from "./components/LogButton";
-import addElement from "./functions/addElement";
-import AddButton from "./components/AddButton";
+// import logClick from "./functions/serverLog";
+// import LogButton from "./components/LogButton";
+// import addElement from "./functions/addElement";
+import ButtonTypeInsert from "./components/ButtonTypeInsert";
+import ButtonTypeEdit from "./components/ButtonTypeEdit";
 
 export default async function Home() {
   const elementsJSON = await db.select().from(elements);
@@ -57,54 +53,15 @@ export default async function Home() {
   // };
 
   return (
-    <main className={styles.pageeee}>
+    <main className={styles.page}>
       <nav className={styles.navbarContainer}>
         <div className={styles.navbar}>
           <div className={styles.navbarCenter}>
             <div className={styles.navbarLeft}>
-              {/* <div className={styles.navbarItem}>
-                <Image alt="pan" src={pan} className={styles.itemImage} />
-              </div>
-              <div className={styles.navbarItem}>
-                <Image alt="resize" src={resize} className={styles.itemImage} />
-              </div>
-              <div className={styles.navbarItem}>
-                <Image alt="edit" src={edit} className={styles.itemImage} />
-              </div> */}
               <div className={styles.ItemCenter}>
-                <div className={styles.radioImageCenter}>
-                  <input
-                    type="radio"
-                    name="actions"
-                    id="pan-btn"
-                    defaultChecked
-                    className={styles.radioButton}
-                  />
-
-                  <Image alt="pan" src={pan} className={styles.itemImage} />
-                </div>
-
-                <div className={styles.radioImageCenter}>
-                  <input
-                    type="radio"
-                    name="actions"
-                    id="resize-btn"
-                    className={styles.radioButton}
-                  />
-
-                  <Image alt="resize" src={resize} className={styles.itemImage} />
-                </div>
-
-                <div className={styles.radioImageCenter}>
-                  <input
-                    type="radio"
-                    name="actions"
-                    id="edit-btn"
-                    className={styles.radioButton}
-                  />
-
-                  <Image alt="edit" src={edit} className={styles.itemImage} />
-                </div>
+                <ButtonTypeEdit buttonType="pan" />
+                <ButtonTypeEdit buttonType="resize" />
+                <ButtonTypeEdit buttonType="edit" />
               </div>
             </div>
 
@@ -113,27 +70,9 @@ export default async function Home() {
                 <p>+</p>
               </div>
 
-              {/* <button className={styles.navbarItem}>
-                <Image alt="image" src={image} className={styles.itemImage} />
-              </button> */}
-
-              <AddButton />
-
-              <button className={styles.navbarItem}>
-                <Image
-                  alt="link"
-                  src={link}
-                  style={{ transform: "rotate(-45deg)" }}
-                  className={styles.itemImage}
-                />
-              </button>
-              <button className={styles.navbarItem}>
-                <Image
-                  alt="article"
-                  src={article}
-                  className={styles.itemImage}
-                />
-              </button>
+              <ButtonTypeInsert buttonType="link" />
+              <ButtonTypeInsert buttonType="image" />
+              <ButtonTypeInsert buttonType="text" />
             </div>
           </div>
         </div>
@@ -144,8 +83,7 @@ export default async function Home() {
       {/* <div style={{ width: "150vw", height: "150vh", backgroundImage: "radial-gradient(circle, rgba(255, 255, 255, 0.02) 10%, transparent 10%)", backgroundSize: "30px 30px", overflow: "hidden" }} /> */}
 
       {/* <Counter /> */}
-
-      <LogButton />
+      {/* <LogButton /> */}
     </main>
   );
 }

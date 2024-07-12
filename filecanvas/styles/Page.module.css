@@ -5,7 +5,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .radioButton {
@@ -55,10 +54,10 @@
 }
 
 .radioButton:focus {
-    outline: none;
+  outline: none;
 }
 
-.pageeee {
+.page {
   width: 100%;
   height: 100vh;
 
@@ -176,7 +175,6 @@
   opacity: 1;
 }
 
-
 .navbarItem:active {
   border: 3px solid #12585d;
 }
@@ -187,6 +185,7 @@
   width: 17px;
   aspect-ratio: 1;
 
+  user-select: none;
   pointer-events: none;
 
   transition: opacity 0.2s ease-in-out;

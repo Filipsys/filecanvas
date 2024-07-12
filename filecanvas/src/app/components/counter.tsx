@@ -10,7 +10,9 @@ const Counter = () => {
   };
 
   return (
-    <input type="radio" name="button" id="btn1" /> 
+    <button onClick={handleClick}>
+      {likes}
+    </button>
   );
 };
 

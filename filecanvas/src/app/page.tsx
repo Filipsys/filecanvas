@@ -11,7 +11,11 @@ import resize from "../../public/navicons/resize.svg";
 
 import styles from "../../styles/Page.module.css";
 
-import Counter from "./components/counter";
+// import Counter from "./components/counter";
+import logClick from "./functions/serverLog";
+import LogButton from "./components/LogButton";
+import addElement from "./functions/addElement";
+import AddButton from "./components/AddButton";
 
 export default async function Home() {
   const elementsJSON = await db.select().from(elements);
@@ -45,6 +49,12 @@ export default async function Home() {
       </div>
     </div>
   ));
+
+  // const handleClick = async () => {
+  //   'use client';
+
+  //   await logClick();
+  // };
 
   return (
     <main className={styles.pageeee}>
@@ -103,9 +113,12 @@ export default async function Home() {
                 <p>+</p>
               </div>
 
-              <button className={styles.navbarItem}>
+              {/* <button className={styles.navbarItem}>
                 <Image alt="image" src={image} className={styles.itemImage} />
-              </button>
+              </button> */}
+
+              <AddButton />
+
               <button className={styles.navbarItem}>
                 <Image
                   alt="link"
@@ -131,6 +144,8 @@ export default async function Home() {
       {/* <div style={{ width: "150vw", height: "150vh", backgroundImage: "radial-gradient(circle, rgba(255, 255, 255, 0.02) 10%, transparent 10%)", backgroundSize: "30px 30px", overflow: "hidden" }} /> */}
 
       {/* <Counter /> */}
+
+      <LogButton />
     </main>
   );
 }

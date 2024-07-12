@@ -8,6 +8,6 @@ function handleClick() {
     setLikes(likes + 1);
 
     console.log(likes);
-}
+}   
 
 export default handleClick;

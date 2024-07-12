@@ -44,9 +44,17 @@
   border: 3px solid #12585d;
 }
 
+.radioButton:checked ~ .itemImage {
+  opacity: 1;
+}
+
 .radioButton:hover {
   background-color: hsl(from #31303b h s l / 0.5);
   box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 1);
+}
+
+.radioButton:focus {
+    outline: none;
 }
 
 .pageeee {
@@ -163,6 +171,11 @@
   opacity: 1;
 }
 
+.radioImageCenter:hover > .itemImage {
+  opacity: 1;
+}
+
+
 .navbarItem:active {
   border: 3px solid #12585d;
 }
@@ -173,7 +186,7 @@
   width: 17px;
   aspect-ratio: 1;
 
-  user-select: none;
+  pointer-events: none;
 
   transition: opacity 0.2s ease-in-out;
 }

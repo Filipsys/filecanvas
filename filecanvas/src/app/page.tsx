@@ -67,6 +67,7 @@ export default async function Home() {
                     type="radio"
                     name="actions"
                     id="pan-btn"
+                    defaultChecked
                     className={styles.radioButton}
                   />
 

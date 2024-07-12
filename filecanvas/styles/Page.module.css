@@ -1,126 +1,195 @@
-.pageeee {
-    width: 100%;
-    height: 100vh;
+.ItemCenter {
+  width: 100%;
+  height: 100%;
 
-    position: relative;
-    background-color: #232329;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.radioButton {
+  appearance: none;
+  background-color: #232329;
+  margin: 0;
+
+  box-sizing: border-box;
+
+  width: 40px;
+  height: 40px;
+
+  /* border: 0.15em solid red; */
+  border-radius: 7px;
+  cursor: pointer;
+  user-select: none;
+
+  transform: translateY(-0.075em);
+
+  margin-left: 5px;
+
+  display: grid;
+  place-content: center;
+
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
+    border 0.2s ease-in-out;
+}
+
+.ItemCenter > .radioImageCenter:last-child > .radioButton {
+  margin-right: 5px;
+}
+
+.radioButton:checked {
+  background-color: #31303b;
+
+  border: 3px solid #12585d;
+}
+
+.radioButton:hover {
+  background-color: hsl(from #31303b h s l / 0.5);
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 1);
+}
+
+.pageeee {
+  width: 100%;
+  height: 100vh;
+
+  position: relative;
+  background-color: #232329;
 }
 
 .navbarContainer {
-    width: 100%;
-    height: 50px;
+  width: 100%;
+  height: 50px;
 
-    position: absolute;
-    top: 0;
-    left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 
-    margin-top: 15px;
-    z-index: 10;
+  margin-top: 15px;
+  z-index: 10;
 }
 
 .navbar {
-    width: fit-content;
-    display: flex;
+  width: fit-content;
+  display: flex;
 
-    position: relative;
-    border-radius: 10px;
+  position: relative;
+  border-radius: 10px;
 
-    box-shadow: 0px 0px 40px -15px rgb(0, 0, 0);
-    background-color: #232329;
+  box-shadow: 0px 0px 40px -15px rgb(0, 0, 0);
+  background-color: #232329;
 }
 
 .navbarCenter {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
 
-    width: 100%;
-    height: 100%
+  width: 100%;
+  height: 100%;
 }
 
-.navbarLeft, .navbarRight {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
+.navbarLeft,
+.navbarRight {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
 
-    height: 100%;
+  height: 100%;
 }
 
 .navbarLeft {
-    background-color: #31303b;
+  background-color: #31303b;
 
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 .navbarLeft > .navbarItem {
-    background-color: #232329;
+  background-color: #232329;
 }
 
 .navbarSpacer {
-    height: 100%;
-    width: 20px;
+  height: 100%;
+  width: 20px;
 
-    opacity: .2;
+  opacity: 0.2;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    user-select: none;
+  user-select: none;
 }
 
 .navbarSpacer > p {
-    color: white;
-    font-size: 20px;
+  color: white;
+  font-size: 20px;
 }
 
 .navbarItem {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    margin-right: 5px;
+  margin-right: 5px;
 
-    border-radius: 7px;
-    background-color: #31303b;
+  border-radius: 7px;
+  background-color: #31303b;
 
-    user-select: none;
-    cursor: pointer;
+  user-select: none;
+  cursor: pointer;
 
-    transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .navbarItem:first-child {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .navbarItem:hover {
-    background-color: hsl(from #31303b h s l / .5);
-    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 1);
+  background-color: hsl(from #31303b h s l / 0.5);
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 1);
 }
 
 .navbarItem:hover > .itemImage {
-    opacity: 1;
+  opacity: 1;
 }
 
 .navbarItem:active {
-    border: 3px solid #12585d;
+  border: 3px solid #12585d;
 }
 
 .itemImage {
-    opacity: .4;
-    margin: 5px;
+  opacity: 0.4;
 
-    width: 17px;
-    aspect-ratio: 1;
+  width: 17px;
+  aspect-ratio: 1;
 
-    transition: opacity .2s ease-in-out;
+  user-select: none;
+
+  transition: opacity 0.2s ease-in-out;
+}
+
+.radioImageCenter > .itemImage {
+  position: absolute;
+  margin: 0;
+  left: 25px;
+
+  transform: translateX(-50%);
+}
+
+.radioImageCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
 }

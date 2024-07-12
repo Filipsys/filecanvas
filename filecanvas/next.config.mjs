@@ -11,10 +11,10 @@ const nextConfig = {
     optimizePackageImports: [
       "better-sqlite3", 
       "drizzle-orm",
+      "react",
       "tailwindcss",
       "postcss",
       "drizzle-kit",
-      
     ],
   },
 };

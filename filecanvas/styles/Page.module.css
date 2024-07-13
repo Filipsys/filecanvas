@@ -39,6 +39,7 @@
 
 .radioButton:checked {
   background-color: #31303b;
+  outline: none;
 
   border: 3px solid #12585d;
   /* box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 1); */
@@ -56,6 +57,8 @@
 .radioButton:focus {
   outline: none;
 }
+
+.radioButton:visited { outline: none; }
 
 .page {
   width: 100%;

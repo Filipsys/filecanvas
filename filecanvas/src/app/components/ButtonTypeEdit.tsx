@@ -10,8 +10,16 @@ import resize from "../../../public/navicons/resize.svg";
 import styles from "../../../styles/Page.module.css";
 
 const ButtonTypeEdit = ({ buttonType }: { buttonType: string }) => {
-  const handleClick = async () => {
-    await addElement();
+  const states: { [key: string]: string } = {
+    "edit-btn": "edit",
+    "pan-btn": "pan",
+    "resize-btn": "resize",
+  };
+
+  const handleClick = async (event: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
+    const selectedState = states[(event.target as HTMLInputElement).id];
+  
+    console.log(selectedState);
   };
 
   const typesDict = {
@@ -22,6 +30,7 @@ const ButtonTypeEdit = ({ buttonType }: { buttonType: string }) => {
           name="actions"
           id="edit-btn"
           className={styles.radioButton}
+          onClick={handleClick}
         />
 
         <Image alt="edit" src={edit} className={styles.itemImage} />
@@ -35,6 +44,7 @@ const ButtonTypeEdit = ({ buttonType }: { buttonType: string }) => {
           id="pan-btn"
           defaultChecked
           className={styles.radioButton}
+          onClick={handleClick}
         />
 
         <Image alt="pan" src={pan} className={styles.itemImage} />
@@ -47,6 +57,7 @@ const ButtonTypeEdit = ({ buttonType }: { buttonType: string }) => {
           name="actions"
           id="resize-btn"
           className={styles.radioButton}
+          onClick={handleClick}
         />
 
         <Image alt="resize" src={resize} className={styles.itemImage} />

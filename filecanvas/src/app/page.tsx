@@ -10,6 +10,7 @@ import styles from "../../styles/Page.module.css";
 // import addElement from "./functions/addElement";
 import ButtonTypeInsert from "./components/ButtonTypeInsert";
 import ButtonTypeEdit from "./components/ButtonTypeEdit";
+import ClientMessageHandler from "./components/ClientMessageHandler";
 
 export default async function Home() {
   const elementsJSON = await db.select().from(elements);
@@ -50,46 +51,40 @@ export default async function Home() {
   //   await logClick();
   // };
 
-  if (typeof window !== "undefined") {
-    window.onmessage = function (event) {
-      console.log(event.data);
-    };
-  } else {
-    console.log("no window");
-  }
-
   return (
     <main className={styles.page}>
-      <nav className={styles.navbarContainer}>
-        <div className={styles.navbar}>
-          <div className={styles.navbarCenter}>
-            <div className={styles.navbarLeft}>
-              <div className={styles.ItemCenter}>
-                <ButtonTypeEdit buttonType="pan" />
-                <ButtonTypeEdit buttonType="resize" />
-                <ButtonTypeEdit buttonType="edit" />
-              </div>
-            </div>
-
-            <div className={styles.navbarRight}>
-              <div className={styles.navbarSpacer}>
-                <p>+</p>
+      <ClientMessageHandler>
+        <nav className={styles.navbarContainer}>
+          <div className={styles.navbar}>
+            <div className={styles.navbarCenter}>
+              <div className={styles.navbarLeft}>
+                <div className={styles.ItemCenter}>
+                  <ButtonTypeEdit buttonType="pan" />
+                  <ButtonTypeEdit buttonType="resize" />
+                  <ButtonTypeEdit buttonType="edit" />
+                </div>
               </div>
 
-              <ButtonTypeInsert buttonType="link" />
-              <ButtonTypeInsert buttonType="image" />
-              <ButtonTypeInsert buttonType="text" />
+              <div className={styles.navbarRight}>
+                <div className={styles.navbarSpacer}>
+                  <p>+</p>
+                </div>
+
+                <ButtonTypeInsert buttonType="link" />
+                <ButtonTypeInsert buttonType="image" />
+                <ButtonTypeInsert buttonType="text" />
+              </div>
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
 
-      {containers}
+        {containers}
 
-      {/* <div style={{ width: "150vw", height: "150vh", backgroundImage: "radial-gradient(circle, rgba(255, 255, 255, 0.02) 10%, transparent 10%)", backgroundSize: "30px 30px", overflow: "hidden" }} /> */}
+        {/* <div style={{ width: "150vw", height: "150vh", backgroundImage: "radial-gradient(circle, rgba(255, 255, 255, 0.02) 10%, transparent 10%)", backgroundSize: "30px 30px", overflow: "hidden" }} /> */}
 
-      {/* <Counter /> */}
-      {/* <LogButton /> */}
+        {/* <Counter /> */}
+        {/* <LogButton /> */}
+      </ClientMessageHandler>
     </main>
   );
 }

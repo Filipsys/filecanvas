@@ -2,8 +2,6 @@ import { db } from "../database/db";
 import { elements } from "../database/schema";
 import Image from "next/image";
 
-
-
 import styles from "../../styles/Page.module.css";
 
 // import Counter from "./components/counter";
@@ -51,6 +49,14 @@ export default async function Home() {
 
   //   await logClick();
   // };
+
+  if (typeof window !== "undefined") {
+    window.onmessage = function (event) {
+      console.log(event.data);
+    };
+  } else {
+    console.log("no window");
+  }
 
   return (
     <main className={styles.page}>

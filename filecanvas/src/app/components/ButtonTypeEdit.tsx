@@ -19,7 +19,10 @@ const ButtonTypeEdit = ({ buttonType }: { buttonType: string }) => {
   const handleClick = async (event: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
     const selectedState = states[(event.target as HTMLInputElement).id];
   
-    console.log(selectedState);
+    // console.log(selectedState);
+
+    // send back to client main page
+    window.parent.postMessage(JSON.stringify({ action: selectedState }), "*");
   };
 
   const typesDict = {

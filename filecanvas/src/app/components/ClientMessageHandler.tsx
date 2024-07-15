@@ -2,12 +2,16 @@
 
 import React, { useEffect } from "react";
 
-const ClientMessageHandler = ({ children }: { children: React.ReactNode }) => {
+interface ClientMessageHandlerProps {
+  onAction: (action: string) => void;
+  children: React.ReactNode;
+}
+
+const ClientMessageHandler: React.FC<ClientMessageHandlerProps> = ({ onAction, children }) => {
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      console.log(event.data);
-
-      
+      const data = JSON.parse(event.data);
+      onAction(data.action);
     };
 
     window.addEventListener("message", handleMessage);
@@ -15,7 +19,7 @@ const ClientMessageHandler = ({ children }: { children: React.ReactNode }) => {
     return () => {
       window.removeEventListener("message", handleMessage);
     };
-  }, []);
+  }, [onAction]);
 
   return <>{children}</>;
 };

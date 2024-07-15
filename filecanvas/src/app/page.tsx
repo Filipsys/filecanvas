@@ -11,9 +11,16 @@ import styles from "../../styles/Page.module.css";
 import ButtonTypeInsert from "./components/ButtonTypeInsert";
 import ButtonTypeEdit from "./components/ButtonTypeEdit";
 import ClientMessageHandler from "./components/ClientMessageHandler";
+import ActionHandler from "./components/ActionHandler";
 
 export default async function Home() {
   const elementsJSON = await db.select().from(elements);
+
+  const handleAction = async (action: string) => {
+    "use server";
+
+    console.log("Action received:", ActionHandler({ newAction: action }));
+  };
 
   const containers = elementsJSON.map((element) => (
     <div
@@ -53,7 +60,7 @@ export default async function Home() {
 
   return (
     <main className={styles.page}>
-      <ClientMessageHandler>
+      <ClientMessageHandler onAction={handleAction}>
         <nav className={styles.navbarContainer}>
           <div className={styles.navbar}>
             <div className={styles.navbarCenter}>

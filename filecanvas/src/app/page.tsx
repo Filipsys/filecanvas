@@ -1,17 +1,12 @@
 import { db } from "../database/db";
 import { elements } from "../database/schema";
-import Image from "next/image";
 
 import styles from "../../styles/Page.module.css";
 
-// import Counter from "./components/counter";
-// import logClick from "./functions/serverLog";
-// import LogButton from "./components/LogButton";
-// import addElement from "./functions/addElement";
-import ButtonTypeInsert from "./components/ButtonTypeInsert";
-import ButtonTypeEdit from "./components/ButtonTypeEdit";
-import ClientMessageHandler from "./components/ClientMessageHandler";
-import ActionHandler from "./components/ActionHandler";
+import ButtonTypeInsert from "./_components/ButtonTypeInsert";
+import ButtonTypeEdit from "./_components/ButtonTypeEdit";
+import ClientMessageHandler from "./_components/ClientMessageHandler";
+import ActionHandler from "./_components/ActionHandler";
 
 export default async function Home() {
   const elementsJSON = await db.select().from(elements);
@@ -52,12 +47,6 @@ export default async function Home() {
     </div>
   ));
 
-  // const handleClick = async () => {
-  //   'use client';
-
-  //   await logClick();
-  // };
-
   return (
     <main className={styles.page}>
       <ClientMessageHandler onAction={handleAction}>
@@ -89,8 +78,6 @@ export default async function Home() {
 
         {/* <div style={{ width: "150vw", height: "150vh", backgroundImage: "radial-gradient(circle, rgba(255, 255, 255, 0.02) 10%, transparent 10%)", backgroundSize: "30px 30px", overflow: "hidden" }} /> */}
 
-        {/* <Counter /> */}
-        {/* <LogButton /> */}
       </ClientMessageHandler>
     </main>
   );

@@ -49,36 +49,35 @@ export default async function Home() {
 
   return (
     <main className={styles.page}>
-      <ClientMessageHandler onAction={handleAction}>
-        <nav className={styles.navbarContainer}>
-          <div className={styles.navbar}>
-            <div className={styles.navbarCenter}>
-              <div className={styles.navbarLeft}>
-                <div className={styles.ItemCenter}>
-                  <ButtonTypeEdit buttonType="pan" />
-                  <ButtonTypeEdit buttonType="resize" />
-                  <ButtonTypeEdit buttonType="edit" />
-                </div>
-              </div>
-
-              <div className={styles.navbarRight}>
-                <div className={styles.navbarSpacer}>
-                  <p>+</p>
-                </div>
-
-                <ButtonTypeInsert buttonType="link" />
-                <ButtonTypeInsert buttonType="image" />
-                <ButtonTypeInsert buttonType="text" />
+      {/* <ClientMessageHandler onAction={handleAction}> */}
+      <nav className={styles.navbarContainer}>
+        <div className={styles.navbar}>
+          <div className={styles.navbarCenter}>
+            <div className={styles.navbarLeft}>
+              <div className={styles.ItemCenter}>
+                <ButtonTypeEdit buttonType="pan" />
+                <ButtonTypeEdit buttonType="resize" />
+                <ButtonTypeEdit buttonType="edit" />
               </div>
             </div>
+
+            <div className={styles.navbarRight}>
+              <div className={styles.navbarSpacer}>
+                <p>+</p>
+              </div>
+
+              <ButtonTypeInsert buttonType="link" />
+              <ButtonTypeInsert buttonType="image" />
+              <ButtonTypeInsert buttonType="text" />
+            </div>
           </div>
-        </nav>
+        </div>
+      </nav>
 
-        {containers}
+      {containers}
 
-        {/* <div style={{ width: "150vw", height: "150vh", backgroundImage: "radial-gradient(circle, rgba(255, 255, 255, 0.02) 10%, transparent 10%)", backgroundSize: "30px 30px", overflow: "hidden" }} /> */}
-
-      </ClientMessageHandler>
+      {/* <div style={{ width: "150vw", height: "150vh", backgroundImage: "radial-gradient(circle, rgba(255, 255, 255, 0.02) 10%, transparent 10%)", backgroundSize: "30px 30px", overflow: "hidden" }} /> */}
+      {/* </ClientMessageHandler> */}
     </main>
   );
 }

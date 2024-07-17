@@ -16,9 +16,11 @@ const ButtonTypeEdit = ({ buttonType }: { buttonType: string }) => {
     "resize-btn": "resize",
   };
 
-  const handleClick = async (event: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
+  const handleClick = async (
+    event: React.MouseEvent<HTMLInputElement, MouseEvent>,
+  ) => {
     const selectedState = states[(event.target as HTMLInputElement).id];
-  
+
     // console.log(selectedState);
 
     // send back to client main page

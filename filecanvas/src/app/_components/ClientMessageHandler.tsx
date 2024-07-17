@@ -7,7 +7,10 @@ interface ClientMessageHandlerProps {
   children: React.ReactNode;
 }
 
-const ClientMessageHandler: React.FC<ClientMessageHandlerProps> = ({ onAction, children }) => {
+const ClientMessageHandler: React.FC<ClientMessageHandlerProps> = ({
+  onAction,
+  children,
+}) => {
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
       const data = JSON.parse(event.data);

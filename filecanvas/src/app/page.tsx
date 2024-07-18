@@ -45,6 +45,19 @@ export default async function Home() {
       >
         {element.data ? element.data : element.dataLink}
       </div>
+
+      <div
+        style={{
+          width: "20px",
+          height: "20px",
+          position: "absolute",
+          bottom: "0",
+          right: "0",
+          display: "none",
+        }}
+      >
+        move
+      </div>
     </div>
   ));
 

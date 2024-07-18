@@ -16,6 +16,10 @@ function PanDiv() {
 }
 
 const ButtonTypeEdit = ({ buttonType }: { buttonType: string }) => {
+  const [hoveredElement, setHoveredElement] = useState<HTMLElement | undefined>(
+    undefined,
+  );
+
   const states: { [key: string]: string } = {
     "edit-btn": "edit",
     "pan-btn": "pan",
@@ -44,21 +48,34 @@ const ButtonTypeEdit = ({ buttonType }: { buttonType: string }) => {
         element.addEventListener("mouseenter", hoverPan);
         element.addEventListener("mouseleave", removeHoverPan);
       } else if (selectedState === "resize") {
-        console.log("Resize");
+        // console.log("Resize");
       } else if (selectedState === "edit") {
-        console.log("Edit");
+        // console.log("Edit");
       }
     });
   };
 
   const hoverPan = () => {
-    const hoveredElement = document.querySelector(
-      "[id^='element-']:hover",
-    ) as HTMLElement;
+    // setHoveredElement = document.querySelector(
+    //   "[id^='element-']:hover",
+    // ) as HTMLElement;
+    //
+    setHoveredElement(
+      document.querySelector("[id^='element-']:hover") as HTMLElement,
+    );
+
+    console.log(hoveredElement);
+
+    if (hoveredElement)
+      (hoveredElement.lastChild as HTMLElement).style.display = "block";
   };
 
   const removeHoverPan = () => {
-    console.log("Remove hover pan");
+    console.log("Remove hover pan", hoveredElement);
+    setHoveredElement(undefined);
+
+    if (hoveredElement)
+      (hoveredElement.lastChild as HTMLElement).style.display = "none";
   };
 
   const typesDict = {

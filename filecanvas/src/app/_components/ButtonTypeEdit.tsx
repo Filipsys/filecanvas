@@ -3,11 +3,17 @@
 import Image from "next/image";
 import addElement from "../functions/addElement";
 
+import { useState, useRef } from "react";
+
 import edit from "../../../public/navicons/edit.svg";
 import pan from "../../../public/navicons/pan.svg";
 import resize from "../../../public/navicons/resize.svg";
 
 import styles from "../../../styles/Page.module.css";
+
+function PanDiv() {
+  return <div>Pan</div>;
+}
 
 const ButtonTypeEdit = ({ buttonType }: { buttonType: string }) => {
   const states: { [key: string]: string } = {
@@ -21,10 +27,38 @@ const ButtonTypeEdit = ({ buttonType }: { buttonType: string }) => {
   ) => {
     const selectedState = states[(event.target as HTMLInputElement).id];
 
-    // console.log(selectedState);
+    // for (const [key, value] of Object.entries(states)) {
+    //   if (key !== selectedState) {
+    //     console.log(key);
+    //   }
+    // }
 
-    // send back to client main page
-    window.parent.postMessage(JSON.stringify({ action: selectedState }), "*");
+    handlePan(selectedState);
+  };
+
+  const handlePan = (selectedState: string) => {
+    const elements = document.querySelectorAll("[id^='element-']");
+
+    elements.forEach((element) => {
+      if (selectedState === "pan") {
+        element.addEventListener("mouseenter", hoverPan);
+        element.addEventListener("mouseleave", removeHoverPan);
+      } else if (selectedState === "resize") {
+        console.log("Resize");
+      } else if (selectedState === "edit") {
+        console.log("Edit");
+      }
+    });
+  };
+
+  const hoverPan = () => {
+    const hoveredElement = document.querySelector(
+      "[id^='element-']:hover",
+    ) as HTMLElement;
+  };
+
+  const removeHoverPan = () => {
+    console.log("Remove hover pan");
   };
 
   const typesDict = {

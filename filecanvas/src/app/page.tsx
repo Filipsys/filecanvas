@@ -32,6 +32,7 @@ export default async function Home() {
         padding: "10px",
       }}
       key={element.id}
+      id={`element-${element.id}`}
     >
       <div
         style={{

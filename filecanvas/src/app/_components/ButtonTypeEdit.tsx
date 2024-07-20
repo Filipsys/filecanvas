@@ -16,10 +16,6 @@ function PanDiv() {
 }
 
 const ButtonTypeEdit = ({ buttonType }: { buttonType: string }) => {
-  const [hoveredElement, setHoveredElement] = useState<HTMLElement | undefined>(
-    undefined,
-  );
-
   const states: { [key: string]: string } = {
     "edit-btn": "edit",
     "pan-btn": "pan",

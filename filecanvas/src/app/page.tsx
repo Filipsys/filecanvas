@@ -4,7 +4,7 @@ import { elements } from "../database/schema";
 import styles from "../../styles/Page.module.css";
 
 import ButtonTypeInsert from "./_components/ButtonTypeInsert";
-import ButtonTypeEdit from "./_components/ButtonTypeEdit";
+import EditButtons from "./_components/EditButtons";
 import ClientMessageHandler from "./_components/ClientMessageHandler";
 import ActionHandler from "./_components/ActionHandler";
 
@@ -63,15 +63,12 @@ export default async function Home() {
 
   return (
     <main className={styles.page}>
-      {/* <ClientMessageHandler onAction={handleAction}> */}
       <nav className={styles.navbarContainer}>
         <div className={styles.navbar}>
           <div className={styles.navbarCenter}>
             <div className={styles.navbarLeft}>
               <div className={styles.ItemCenter}>
-                <ButtonTypeEdit buttonType="pan" />
-                <ButtonTypeEdit buttonType="resize" />
-                <ButtonTypeEdit buttonType="edit" />
+                <EditButtons />
               </div>
             </div>
 
@@ -91,7 +88,6 @@ export default async function Home() {
       {containers}
 
       {/* <div style={{ width: "150vw", height: "150vh", backgroundImage: "radial-gradient(circle, rgba(255, 255, 255, 0.02) 10%, transparent 10%)", backgroundSize: "30px 30px", overflow: "hidden" }} /> */}
-      {/* </ClientMessageHandler> */}
     </main>
   );
 }

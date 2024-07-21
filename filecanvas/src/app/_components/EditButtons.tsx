@@ -1,49 +1,52 @@
 "use client";
 
 import ButtonTypeEdit from "./ButtonTypeEdit";
-import panElement from "../actions/panElement";
-import resizeElement from "../actions/resizeElement";
-import editElement from "../actions/editElement";
 
 import { useState } from "react";
 
 export default function EditButtons() {
-  const [activeOption, changeActiveOption] = useState<string>("edit");
+  const [hoveredElement, setHoveredElement] = useState<HTMLElement>();
+  const [activeOption, changeActiveOption] = useState<string>("pan");
 
-  function setActiveOption(option: string) {
-    changeActiveOption(option);
+  function panMode() {
+    changeActiveOption("pan");
 
-    switch (option) {
-      case "pan":
-        panElement(
-          document.querySelector("[id^='element-']:hover") as HTMLElement,
-        );
-        break;
-      case "resize":
-        resizeElement(
-          document.querySelector("[id^='element-']:hover") as HTMLElement,
-        );
-        break;
-      case "edit":
-        editElement(
-          document.querySelector("[id^='element-']:hover") as HTMLElement,
-        );
-        break;
-    }
+    const onHover = (element: Element) => {
+      console.log("Hovered", element);
 
-    console.log(activeOption);
+      const dragDiv = <div>Drag</div>;
+
+      element.appendChild(dragDiv);
+    };
+
+    const onRemoveHover = (element: Element) => {
+      console.log("Remove hover", element);
+    };
+
+    document.querySelectorAll("[id^='element-']").forEach((element) => {
+      const newElement = element as HTMLElement & {
+        _hasHoverListeners?: boolean;
+      };
+
+      if (!newElement._hasHoverListeners) {
+        element.addEventListener("mouseenter", () => onHover(element));
+        element.addEventListener("mouseleave", () => onRemoveHover(element));
+
+        newElement._hasHoverListeners = true;
+      }
+    });
   }
 
   return (
     <>
-      <ButtonTypeEdit buttonType="pan" onClick={() => setActiveOption("pan")} />
+      <ButtonTypeEdit buttonType="pan" onClick={() => panMode()} />
       <ButtonTypeEdit
         buttonType="resize"
-        onClick={() => setActiveOption("resize")}
+        onClick={() => console.log("Resize clicked")}
       />
       <ButtonTypeEdit
         buttonType="edit"
-        onClick={() => setActiveOption("edit")}
+        onClick={() => console.log("Edit clicked")}
       />
     </>
   );

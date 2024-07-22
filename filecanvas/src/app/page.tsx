@@ -11,12 +11,7 @@ import ActionHandler from "./_components/ActionHandler";
 export default async function Home() {
   const elementsJSON = await db.select().from(elements);
 
-  const handleAction = async (action: string) => {
-    "use server";
-
-    console.log("Action received:", ActionHandler({ newAction: action }));
-  };
-
+  const isHovered = 1;
   const containers = elementsJSON.map((element) => (
     <div
       className=""
@@ -46,18 +41,19 @@ export default async function Home() {
         {element.data ? element.data : element.dataLink}
       </div>
 
-      <div
-        style={{
-          width: "20px",
-          height: "20px",
-          position: "absolute",
-          bottom: "0",
-          right: "0",
-          display: "none",
-        }}
-      >
-        move
-      </div>
+      {isHovered ? (
+        <div
+          style={{
+            width: "20px",
+            height: "20px",
+            position: "absolute",
+            bottom: "0",
+            right: "0",
+          }}
+        >
+          move
+        </div>
+      ) : null}
     </div>
   ));
 

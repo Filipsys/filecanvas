@@ -14,9 +14,9 @@ export default function EditButtons() {
     const onHover = (element: Element) => {
       console.log("Hovered", element);
 
-      const dragDiv = <div>Drag</div>;
+      // const dragDiv = <div>Drag</div>;
 
-      element.appendChild(dragDiv);
+      // element.appendChild(dragDiv);
     };
 
     const onRemoveHover = (element: Element) => {

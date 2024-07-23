@@ -9,7 +9,7 @@ import article from "../../../public/navicons/article.svg";
 
 import styles from "../../../styles/Page.module.css";
 
-const ButtonTypeInsert = ({ buttonType }: { buttonType: string }) => {
+export const ButtonTypeInsert = ({ buttonType }: { buttonType: string }) => {
   const handleClick = async () => {
     await addElement();
   };
@@ -48,5 +48,3 @@ const ButtonTypeInsert = ({ buttonType }: { buttonType: string }) => {
       return typesDict.text;
   }
 };
-
-export default ButtonTypeInsert;

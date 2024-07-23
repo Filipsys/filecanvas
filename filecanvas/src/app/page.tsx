@@ -1,46 +1,14 @@
 import { db } from "../database/db";
 import { elements } from "../database/schema";
 
-import styles from "../../styles/Page.module.css";
-
-import MyCanvasElement from "./_components/CanvasWrapper";
-
+import { MyCanvasElement } from "./_components/CanvasWrapper";
 import { EditButtons } from "./_components/EditButtons";
-import ButtonTypeInsert from "./_components/ButtonTypeInsert";
+import { ButtonTypeInsert } from "./_components/ButtonTypeInsert";
+
+import styles from "../../styles/Page.module.css";
 
 export default async function Home() {
   const elementsJSON = await db.select().from(elements);
-
-  const containers = elementsJSON.map((element) => (
-    <div
-      className=""
-      style={{
-        width: element.width || "fit-content",
-        height: element.height,
-        top: element.y,
-        left: element.x,
-        backgroundColor: "#0e4145",
-        position: "absolute",
-        border: "3px solid #12585d",
-        borderRadius: "10px",
-        padding: "10px",
-      }}
-      key={element.id}
-      id={`element-${element.id}`}
-    >
-      <div
-        style={{
-          fontSize: "20px",
-          color: "white",
-          verticalAlign: "top",
-          textAlign: "left",
-          userSelect: "none",
-        }}
-      >
-        {element.data ? element.data : element.dataLink}
-      </div>
-    </div>
-  ));
 
   return (
     <main className={styles.page}>

@@ -1,9 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import addElement from "../functions/addElement";
-
-import { useState, useRef } from "react";
 
 import edit from "../../../public/navicons/edit.svg";
 import pan from "../../../public/navicons/pan.svg";
@@ -11,100 +8,7 @@ import resize from "../../../public/navicons/resize.svg";
 
 import styles from "../../../styles/Page.module.css";
 
-// function PanDiv() {
-//   return <div>Pan</div>;
-// }
-
 const ButtonTypeEdit = (props: { onClick: () => void; buttonType: string }) => {
-  const states: { [key: string]: string } = {
-    "edit-btn": "edit",
-    "pan-btn": "pan",
-    "resize-btn": "resize",
-  };
-
-  // const handleClick = async (
-  //   event: React.MouseEvent<HTMLInputElement, MouseEvent>,
-  // ) => {
-  //   const selectedState = states[(event.target as HTMLInputElement).id];
-
-  // for (const [key, value] of Object.entries(states)) {
-  //   if (key !== selectedState) {
-  //     console.log(key);
-  //   }
-  // }
-
-  // handlePan(selectedState);
-  // };
-
-  // const handlePan = (selectedState: string) => {
-  //   const elements = document.querySelectorAll("[id^='element-']");
-
-  //   elements.forEach((element) => {
-  //     if (selectedState === "pan") {
-  //       element.addEventListener("mouseenter", hoverPan);
-  //       element.addEventListener("mouseleave", removeHoverPan);
-  //     } else if (selectedState === "resize") {
-  //       // console.log("Resize");
-  //     } else if (selectedState === "edit") {
-  //       // console.log("Edit");
-  //     }
-  //   });
-  // };
-
-  // const hoverPan = () => {
-  // setHoveredElement = document.querySelector(
-  //   "[id^='element-']:hover",
-  // ) as HTMLElement;
-  //
-  // setHoveredElement(
-  //   document.querySelector("[id^='element-']:hover") as HTMLElement,
-  // );
-  // console.log(hoveredElement);
-  // if (hoveredElement)
-  //   (hoveredElement.lastChild as HTMLElement).style.display = "block";
-  // };
-
-  // const removeHoverPan = () => {
-  //   console.log("Remove hover pan", hoveredElement);
-  //   setHoveredElement(undefined);
-
-  //   if (hoveredElement)
-  //     (hoveredElement.lastChild as HTMLElement).style.display = "none";
-  // };
-  //
-  // const panElement = () => {
-  const [hoveredElement, setHoveredElement] = useState<HTMLElement>();
-
-  function hoverPan() {
-    console.log("Hover pan");
-
-    const currentElement = document.querySelector(
-      "[id^='element-']:hover",
-    ) as HTMLElement;
-
-    if (currentElement) {
-      setHoveredElement(currentElement);
-
-      currentElement.style.cursor = "grab";
-    }
-  }
-
-  function removeHoverPan() {
-    console.log("Remove hover pan");
-
-    if (hoveredElement) {
-      setHoveredElement(undefined);
-
-      hoveredElement.style.cursor = "default";
-    }
-  }
-
-  document.querySelectorAll("[id^='element-']").forEach((element) => {
-    element.addEventListener("mouseenter", hoverPan);
-    element.addEventListener("mouseleave", removeHoverPan);
-  });
-  // };
-
   const typesDict = {
     edit: (
       <div className={styles.radioImageCenter}>

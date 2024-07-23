@@ -22,7 +22,12 @@ const ButtonTypeInsert = ({ buttonType }: { buttonType: string }) => {
     ),
     link: (
       <button className={styles.navbarItem} onClick={handleClick}>
-        <Image alt="link" src={link} className={styles.itemImage} style={{ transform: "rotate(-45deg)" }} />
+        <Image
+          alt="link"
+          src={link}
+          className={styles.itemImage}
+          style={{ transform: "rotate(-45deg)" }}
+        />
       </button>
     ),
     text: (

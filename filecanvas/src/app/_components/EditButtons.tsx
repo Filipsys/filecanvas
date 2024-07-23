@@ -4,49 +4,22 @@ import ButtonTypeEdit from "./ButtonTypeEdit";
 
 import { useState } from "react";
 
-export default function EditButtons() {
-  const [hoveredElement, setHoveredElement] = useState<HTMLElement>();
-  const [activeOption, changeActiveOption] = useState<string>("pan");
-
-  function panMode() {
-    changeActiveOption("pan");
-
-    const onHover = (element: Element) => {
-      console.log("Hovered", element);
-
-      // const dragDiv = <div>Drag</div>;
-
-      // element.appendChild(dragDiv);
-    };
-
-    const onRemoveHover = (element: Element) => {
-      console.log("Remove hover", element);
-    };
-
-    document.querySelectorAll("[id^='element-']").forEach((element) => {
-      const newElement = element as HTMLElement & {
-        _hasHoverListeners?: boolean;
-      };
-
-      if (!newElement._hasHoverListeners) {
-        element.addEventListener("mouseenter", () => onHover(element));
-        element.addEventListener("mouseleave", () => onRemoveHover(element));
-
-        newElement._hasHoverListeners = true;
-      }
-    });
-  }
+export function EditButtons() {
+  const [mode, setMode] = useState("pan");
 
   return (
     <>
-      <ButtonTypeEdit buttonType="pan" onClick={() => panMode()} />
+      <ButtonTypeEdit
+        buttonType="pan"
+        onClick={() => (setMode("pan"), console.log(mode))}
+      />
       <ButtonTypeEdit
         buttonType="resize"
-        onClick={() => console.log("Resize clicked")}
+        onClick={() => (setMode("resize"), console.log(mode))}
       />
       <ButtonTypeEdit
         buttonType="edit"
-        onClick={() => console.log("Edit clicked")}
+        onClick={() => (setMode("edit"), console.log(mode))}
       />
     </>
   );

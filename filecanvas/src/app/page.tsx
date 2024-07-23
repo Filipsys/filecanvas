@@ -3,15 +3,14 @@ import { elements } from "../database/schema";
 
 import styles from "../../styles/Page.module.css";
 
+import MyCanvasElement from "./_components/CanvasWrapper";
+
+import { EditButtons } from "./_components/EditButtons";
 import ButtonTypeInsert from "./_components/ButtonTypeInsert";
-import EditButtons from "./_components/EditButtons";
-import ClientMessageHandler from "./_components/ClientMessageHandler";
-import ActionHandler from "./_components/ActionHandler";
 
 export default async function Home() {
   const elementsJSON = await db.select().from(elements);
 
-  const isHovered = 1;
   const containers = elementsJSON.map((element) => (
     <div
       className=""
@@ -40,20 +39,6 @@ export default async function Home() {
       >
         {element.data ? element.data : element.dataLink}
       </div>
-
-      {isHovered ? (
-        <div
-          style={{
-            width: "20px",
-            height: "20px",
-            position: "absolute",
-            bottom: "0",
-            right: "0",
-          }}
-        >
-          move
-        </div>
-      ) : null}
     </div>
   ));
 
@@ -81,7 +66,20 @@ export default async function Home() {
         </div>
       </nav>
 
-      {containers}
+      {/* {containers} */}
+
+      {elementsJSON.map((element) => (
+        <MyCanvasElement
+          key={element.id}
+          mode="move"
+          x={element.x}
+          y={element.y}
+          width={element.width}
+          height={element.height}
+          data={element.data}
+          dataLink={element.dataLink}
+        />
+      ))}
 
       {/* <div style={{ width: "150vw", height: "150vh", backgroundImage: "radial-gradient(circle, rgba(255, 255, 255, 0.02) 10%, transparent 10%)", backgroundSize: "30px 30px", overflow: "hidden" }} /> */}
     </main>

@@ -2,7 +2,10 @@ import { HandIcon, TransformIcon, Pencil2Icon } from "@radix-ui/react-icons";
 
 import styles from "../../../styles/Page.module.css";
 
-const ButtonTypeEdit = (props: { onClick: () => void; buttonType: string }) => {
+export const ButtonTypeEdit = (props: {
+  onClick: () => void;
+  buttonType: string;
+}) => {
   const typesDict = {
     edit: (
       <div className={styles.radioImageCenter}>
@@ -55,5 +58,3 @@ const ButtonTypeEdit = (props: { onClick: () => void; buttonType: string }) => {
       return typesDict.resize;
   }
 };
-
-export default ButtonTypeEdit;

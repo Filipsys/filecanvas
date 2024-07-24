@@ -22,19 +22,15 @@
   cursor: pointer;
   user-select: none;
 
-  transform: translateY(-0.075em);
-
-  margin-left: 5px;
+  /* transform: translateY(-0.075em); */
 
   display: grid;
   place-content: center;
 
-  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
+  transition:
+    background-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out,
     border 0.2s ease-in-out;
-}
-
-.ItemCenter > .radioImageCenter:last-child > .radioButton {
-  margin-right: 5px;
 }
 
 .radioButton:checked {
@@ -58,7 +54,9 @@
   outline: none;
 }
 
-.radioButton:visited { outline: none; }
+.radioButton:visited {
+  outline: none;
+}
 
 .page {
   width: 100%;
@@ -158,7 +156,9 @@
   user-select: none;
   cursor: pointer;
 
-  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition:
+    background-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
 }
 
 .navbarItem:first-child {
@@ -185,7 +185,7 @@
 .itemImage {
   opacity: 0.4;
 
-  width: 17px;
+  width: 15px;
   aspect-ratio: 1;
 
   user-select: none;
@@ -197,9 +197,10 @@
 .radioImageCenter > .itemImage {
   position: absolute;
   margin: 0;
-  left: 25px;
 
-  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .radioImageCenter {
@@ -207,5 +208,14 @@
   justify-content: center;
   align-items: center;
 
+  width: 40px;
+  height: 40px;
+
   position: relative;
+
+  margin-left: 5px;
+}
+
+.radioImageCenter:last-child {
+  margin-right: 5px;
 }

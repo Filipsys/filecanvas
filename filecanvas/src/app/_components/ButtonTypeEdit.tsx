@@ -1,10 +1,4 @@
-"use client";
-
-import Image from "next/image";
-
-import edit from "../../../public/navicons/edit.svg";
-import pan from "../../../public/navicons/pan.svg";
-import resize from "../../../public/navicons/resize.svg";
+import { HandIcon, TransformIcon, Pencil2Icon } from "@radix-ui/react-icons";
 
 import styles from "../../../styles/Page.module.css";
 
@@ -20,7 +14,7 @@ const ButtonTypeEdit = (props: { onClick: () => void; buttonType: string }) => {
           onClick={props.onClick}
         />
 
-        <Image alt="edit" src={edit} className={styles.itemImage} />
+        <Pencil2Icon className={styles.itemImage} />
       </div>
     ),
     pan: (
@@ -34,7 +28,7 @@ const ButtonTypeEdit = (props: { onClick: () => void; buttonType: string }) => {
           onClick={props.onClick}
         />
 
-        <Image alt="pan" src={pan} className={styles.itemImage} />
+        <HandIcon className={styles.itemImage} />
       </div>
     ),
     resize: (
@@ -47,7 +41,7 @@ const ButtonTypeEdit = (props: { onClick: () => void; buttonType: string }) => {
           onClick={props.onClick}
         />
 
-        <Image alt="resize" src={resize} className={styles.itemImage} />
+        <TransformIcon className={styles.itemImage} />
       </div>
     ),
   };

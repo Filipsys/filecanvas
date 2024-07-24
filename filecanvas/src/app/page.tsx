@@ -1,9 +1,9 @@
-import { db } from "../database/db";
-import { elements } from "../database/schema";
+import { db } from "@/database/db";
+import { elements } from "@/database/schema";
 
-import { MyCanvasElement } from "./_components/CanvasWrapper";
-import { EditButtons } from "./_components/EditButtons";
-import { ButtonTypeInsert } from "./_components/ButtonTypeInsert";
+import { MyCanvasElement } from "@/app/_components/CanvasWrapper";
+import { EditButtons } from "@/app/_components/EditButtons";
+import { ButtonTypeInsert } from "@/app/_components/ButtonTypeInsert";
 
 import styles from "../../styles/Page.module.css";
 
@@ -49,7 +49,16 @@ export default async function Home() {
         />
       ))}
 
-      {/* <div style={{ width: "150vw", height: "150vh", backgroundImage: "radial-gradient(circle, rgba(255, 255, 255, 0.02) 10%, transparent 10%)", backgroundSize: "30px 30px", overflow: "hidden" }} /> */}
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          backgroundImage:
+            "radial-gradient(circle, rgba(255, 255, 255, 0.02) 10%, transparent 10%)",
+          backgroundSize: "30px 30px",
+          overflow: "hidden",
+        }}
+      />
     </main>
   );
 }

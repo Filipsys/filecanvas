@@ -1,0 +1,18 @@
+.group:hover .group-hover\:visible {
+  visibility: visible;
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: 10px;
+  height: 10px;
+
+  background-color: red;
+}
+.invisible {
+  visibility: hidden;
+}
+
+.group {
+}

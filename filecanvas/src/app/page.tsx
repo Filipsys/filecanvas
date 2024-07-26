@@ -7,11 +7,15 @@ import { ButtonTypeInsert } from "@/app/_components/ButtonTypeInsert";
 
 import styles from "../../styles/Page.module.css";
 
-export default async function Home() {
+import { AppType } from "next/app";
+import { trpc } from "@/utils/trpc";
+import type { AppProps } from "next/app";
+
+const Home: AppType = async ({ Component, pageProps }: AppProps) => {
   const elementsJSON = await db.select().from(elements);
 
   return (
-    <main className={styles.page}>
+    <Component {...pageProps} className={styles.page}>
       <nav className={styles.navbarContainer}>
         <div className={styles.navbar}>
           <div className={styles.navbarCenter}>
@@ -59,6 +63,8 @@ export default async function Home() {
           overflow: "hidden",
         }}
       />
-    </main>
+    </Component>
   );
-}
+};
+
+export default trpc.withTRPC(Home);

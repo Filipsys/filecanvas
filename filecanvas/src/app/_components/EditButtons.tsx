@@ -3,11 +3,10 @@
 import { ButtonTypeEdit } from "./ButtonTypeEdit";
 
 import { useState } from "react";
-import { useEditContext } from "@/app/context/EditContext";
 
 export function EditButtons() {
   const [mode, setMode] = useState("pan");
-  const { setData } = useEditContext();
+  const [data, setData] = useState("pan");
 
   return (
     <>

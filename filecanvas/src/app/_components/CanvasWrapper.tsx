@@ -2,17 +2,12 @@
 
 import { useState } from "react";
 import { createTRPCClient, httpBatchLink } from "@trpc/client";
-import type { AppRouter } from "@/server";
 
 import "../../../styles/elements.css";
 
 const icons = {
   move: <div className="invisible group-hover:visible"></div>,
 };
-
-const client = createTRPCClient<AppRouter>({
-  links: [httpBatchLink({ url: "http://localhost:3333" })],
-});
 
 export function CanvasIconWrapper(props: { mode: "move" | null }) {
   const [isHovering, setIsHovering] = useState(false);
@@ -78,9 +73,8 @@ export function MyCanvasElement(props: {
 
       <button
         onClick={async () => {
-          const result = await client.elementList.query();
-
-          console.log(result);
+          // const result = await client.elementList.query();
+          // console.log(result);
         }}
       >
         test

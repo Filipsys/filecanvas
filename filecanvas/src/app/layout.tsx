@@ -27,7 +27,15 @@ export const metadata: Metadata = {
 // }
 //
 const MyApp: AppType = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />;
+  // return <Component {...pageProps} />;
+
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <Component {...pageProps} />
+      </body>
+    </html>
+  );
 };
 
 export default trpc.withTRPC(MyApp);

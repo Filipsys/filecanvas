@@ -1,22 +1,18 @@
-import { db } from "@/database/db";
-import { elements } from "@/database/schema";
+// import { db } from "@/database/db";
+// import { elements } from "@/database/schema";
 
-import { MyCanvasElement } from "@/app/_components/CanvasWrapper";
-import { EditButtons } from "@/app/_components/EditButtons";
-import { ButtonTypeInsert } from "@/app/_components/ButtonTypeInsert";
+// import { MyCanvasElement } from "@/app/_components/CanvasWrapper";
+// import { EditButtons } from "@/app/_components/EditButtons";
+// import { ButtonTypeInsert } from "@/app/_components/ButtonTypeInsert";
 
 import styles from "../../styles/Page.module.css";
 
-import { AppType } from "next/app";
-import { trpc } from "@/utils/trpc";
-import type { AppProps } from "next/app";
-
-const Home: AppType = async ({ Component, pageProps }: AppProps) => {
-  const elementsJSON = await db.select().from(elements);
+export default async function Home() {
+  // const elementsJSON = await db.select().from(elements);
 
   return (
-    <Component {...pageProps} className={styles.page}>
-      <nav className={styles.navbarContainer}>
+    <>
+      {/* <nav className={styles.navbarContainer}>
         <div className={styles.navbar}>
           <div className={styles.navbarCenter}>
             <div className={styles.navbarLeft}>
@@ -36,11 +32,11 @@ const Home: AppType = async ({ Component, pageProps }: AppProps) => {
             </div>
           </div>
         </div>
-      </nav>
+      </nav> */}
 
       {/* {containers} */}
 
-      {elementsJSON.map((element) => (
+      {/* {elementsJSON.map((element) => (
         <MyCanvasElement
           key={element.id}
           mode="move"
@@ -51,9 +47,9 @@ const Home: AppType = async ({ Component, pageProps }: AppProps) => {
           data={element.data}
           dataLink={element.dataLink}
         />
-      ))}
+      ))}  */}
 
-      <div
+      {/* <div
         style={{
           width: "100vw",
           height: "100vh",
@@ -62,9 +58,7 @@ const Home: AppType = async ({ Component, pageProps }: AppProps) => {
           backgroundSize: "30px 30px",
           overflow: "hidden",
         }}
-      />
-    </Component>
+      /> */}
+    </>
   );
-};
-
-export default trpc.withTRPC(Home);
+}

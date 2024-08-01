@@ -5,7 +5,7 @@
 // import { EditButtons } from "@/app/_components/EditButtons";
 // import { ButtonTypeInsert } from "@/app/_components/ButtonTypeInsert";
 
-import styles from "../../styles/Page.module.css";
+// import styles from "../../styles/Page.module.css";
 
 export default async function Home() {
   // const elementsJSON = await db.select().from(elements);

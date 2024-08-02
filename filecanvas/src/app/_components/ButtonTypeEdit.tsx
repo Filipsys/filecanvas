@@ -1,3 +1,5 @@
+"use client";
+
 import { HandIcon, TransformIcon, Pencil2Icon } from "@radix-ui/react-icons";
 
 import styles from "../../../styles/Page.module.css";

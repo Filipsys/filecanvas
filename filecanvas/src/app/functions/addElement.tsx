@@ -2,7 +2,7 @@
 
 import { db } from "@/database/db";
 import { elements } from "@/database/schema";
-import { revalidatePath } from "next/cache";
+// import { revalidatePath } from "next/cache";
 
 const addElement = async (/* element: any */) => {
   // await db.insert(elements).values({
@@ -18,7 +18,7 @@ const addElement = async (/* element: any */) => {
 
   console.log("element");
 
-  revalidatePath("/");
+  // revalidatePath("/");
 };
 
 export default addElement;

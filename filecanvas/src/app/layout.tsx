@@ -4,6 +4,7 @@ import "../../styles/globals.css";
 
 import type { AppType } from "next/app";
 import { trpc } from "../utils/trpc";
+import { TrpcProvider } from "@/app/_components/TrpcProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,23 +20,31 @@ export const metadata: Metadata = {
 // }>) {
 //   return (
 //     <html lang="en">
-//       <body className={inter.className}>
-
-//       </body>
+//       <body className={inter.className}>{children}</body>
 //     </html>
 //   );
 // }
-//
-const MyApp: AppType = ({ Component, pageProps }) => {
-  // return <Component {...pageProps} />;
 
+// const MyApp: AppType = ({ Component, pageProps }) => {
+//   // return <Component {...pageProps} />;
+
+//   return (
+//     <html lang="en">
+//       <body className={inter.className}>
+//         <Component {...pageProps} />
+//       </body>
+//     </html>
+//   );
+// };
+
+// export default trpc.withTRPC(MyApp);
+
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Component {...pageProps} />
-      </body>
-    </html>
+    <TrpcProvider>
+      <html className="inter.className">
+        <body>{children}</body>
+      </html>
+    </TrpcProvider>
   );
-};
-
-export default trpc.withTRPC(MyApp);
+}

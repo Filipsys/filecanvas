@@ -5,7 +5,7 @@ import { HandIcon, TransformIcon, Pencil2Icon } from "@radix-ui/react-icons";
 import styles from "../../../styles/Page.module.css";
 
 export const ButtonTypeEdit = (props: {
-  // onClick: () => void;
+  onClick: () => void;
   buttonType: string;
 }) => {
   const typesDict = {
@@ -16,7 +16,7 @@ export const ButtonTypeEdit = (props: {
           name="actions"
           id="edit-btn"
           className={styles.radioButton}
-          // onClick={props.onClick}
+          onClick={props.onClick}
         />
 
         <Pencil2Icon className={styles.itemImage} />
@@ -30,7 +30,7 @@ export const ButtonTypeEdit = (props: {
           id="pan-btn"
           defaultChecked
           className={styles.radioButton}
-          // onClick={props.onClick}
+          onClick={props.onClick}
         />
 
         <HandIcon className={styles.itemImage} />
@@ -43,7 +43,7 @@ export const ButtonTypeEdit = (props: {
           name="actions"
           id="resize-btn"
           className={styles.radioButton}
-          // onClick={props.onClick}
+          onClick={props.onClick}
         />
 
         <TransformIcon className={styles.itemImage} />

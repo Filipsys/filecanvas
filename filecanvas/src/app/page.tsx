@@ -1,18 +1,20 @@
-// import { db } from "@/database/db";
-// import { elements } from "@/database/schema";
+import { db } from "@/database/db";
+import { elements } from "@/database/schema";
+import { trpc } from "../utils/trpc";
 
-// import { MyCanvasElement } from "@/app/_components/CanvasWrapper";
-// import { EditButtons } from "@/app/_components/EditButtons";
-// import { ButtonTypeInsert } from "@/app/_components/ButtonTypeInsert";
+import { MyCanvasElement } from "@/app/_components/CanvasWrapper";
+import { EditButtons } from "@/app/_components/EditButtons";
+import { ButtonTypeInsert } from "@/app/_components/ButtonTypeInsert";
 
-// import styles from "../../styles/Page.module.css";
+import styles from "../../styles/Page.module.css";
 
 export default async function Home() {
   // const elementsJSON = await db.select().from(elements);
+  const elementsJSON = trpc.elementList.useQuery();
 
   return (
     <>
-      {/* <nav className={styles.navbarContainer}>
+      <nav className={styles.navbarContainer}>
         <div className={styles.navbar}>
           <div className={styles.navbarCenter}>
             <div className={styles.navbarLeft}>
@@ -32,11 +34,11 @@ export default async function Home() {
             </div>
           </div>
         </div>
-      </nav> */}
+      </nav>
 
       {/* {containers} */}
 
-      {/* {elementsJSON.map((element) => (
+      {elementsJSON.map((element) => (
         <MyCanvasElement
           key={element.id}
           mode="move"
@@ -47,9 +49,9 @@ export default async function Home() {
           data={element.data}
           dataLink={element.dataLink}
         />
-      ))}  */}
+      ))}
 
-      {/* <div
+      <div
         style={{
           width: "100vw",
           height: "100vh",
@@ -58,7 +60,7 @@ export default async function Home() {
           backgroundSize: "30px 30px",
           overflow: "hidden",
         }}
-      /> */}
+      />
     </>
   );
 }

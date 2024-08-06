@@ -10,7 +10,8 @@ import styles from "../../styles/Page.module.css";
 
 export default async function Home() {
   // const elementsJSON = await db.select().from(elements);
-  const elementsJSON = trpc.elementList.useQuery();
+  // const elementsJSON = trpc.elementList.useQuery();
+  const result = trpc.sayHello.useQuery();
 
   return (
     <>
@@ -38,7 +39,7 @@ export default async function Home() {
 
       {/* {containers} */}
 
-      {elementsJSON.map((element) => (
+      {/* {elementsJSON.map((element) => (
         <MyCanvasElement
           key={element.id}
           mode="move"
@@ -49,7 +50,7 @@ export default async function Home() {
           data={element.data}
           dataLink={element.dataLink}
         />
-      ))}
+      ))} */}
 
       <div
         style={{

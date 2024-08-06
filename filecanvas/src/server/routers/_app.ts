@@ -8,6 +8,9 @@ export const appRouter = router({
     const output = await db.select().from(elements);
     return output;
   }),
+  sayHello: publicProcedure.query(() => {
+    return "Hello world!";
+  }),
   elementCreate: publicProcedure
     .input(
       z.object({

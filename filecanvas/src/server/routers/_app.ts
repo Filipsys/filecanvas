@@ -9,7 +9,7 @@ export const appRouter = router({
     return output;
   }),
   sayHello: publicProcedure.query(() => {
-    return "Hello world!";
+    return { data: "Hello world!" };
   }),
   elementCreate: publicProcedure
     .input(

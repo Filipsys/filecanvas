@@ -1,4 +1,3 @@
-import { db } from "@/database/db";
 import { elements } from "@/database/schema";
 import { trpc } from "../utils/trpc";
 
